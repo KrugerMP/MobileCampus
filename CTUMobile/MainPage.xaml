@@ -1,0 +1,232 @@
+﻿<Page
+    x:Class="CTUMobile.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:local="using:CTUMobile"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+                <VisualState x:Name="mobile">
+
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--Define the mobile layout-->
+                        <!--Buttons-->
+                        <Setter Target="Buttons.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="Buttons.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="GridView.ColumnDefinitions[0].Width" Value="250"></Setter>
+
+                        <!--Information-->
+                        <Setter Target="Information.(Grid.Row)" Value="3"></Setter>
+                        <Setter Target="Information.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="Information.Orientation"  Value="Vertical" />
+                        <Setter Target="CampusImage1.Width" Value="100"></Setter>
+                        <Setter Target="CampusImage1.Height" Value="150"></Setter>
+                        
+                        <!--Description-->
+                        <Setter Target="Description.(Grid.Row)" Value="8"></Setter>
+                        <Setter Target="Description.Orientation"  Value="Vertical" />
+                        <Setter Target="Description.(Grid.Column)" Value="0"></Setter>
+                        
+                        <!--Activities-->
+                        <Setter Target="Activities.(Grid.Row)" Value="11"></Setter>
+                        <Setter Target="Activities.(Grid.Column)" Value="0"></Setter>
+
+                        <!--Courses-->
+                        <Setter Target="Courses.(Grid.Row)" Value="13"></Setter>
+                        <Setter Target="Courses.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="Courses.Orientation"  Value="Vertical" />
+
+                        <!--MAP-->
+                        <Setter Target="Map.(Grid.Row)" Value="15"></Setter>
+                        <Setter Target="Map.(Grid.Column)" Value="0"></Setter>
+
+                        <Setter Target="InteractMap.(Grid.Row)" Value="15"></Setter>
+                        <Setter Target="InteractMap.(Grid.Column)" Value="0"></Setter>
+                        
+                    </VisualState.Setters>
+
+                </VisualState>
+
+                <VisualState x:Name="desktopOne">
+
+                    <VisualState.StateTriggers>
+
+                        <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
+                        
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+
+                        <!--Define the desktop layout
+                        Buttons-->
+                        <Setter Target="Buttons.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="Buttons.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="GridView.ColumnDefinitions[0].Width" Value="250"></Setter>
+
+                        <!--Information-->
+                        <Setter Target="Information.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="Information.(Grid.Column)" Value="1"></Setter>
+                        <Setter Target="CampusImage1.Width" Value="250"></Setter>
+                        <Setter Target="CampusImage1.Height" Value="250"></Setter>
+
+                        <!--Description-->
+                        <Setter Target="Description.(Grid.Row)" Value="3"></Setter>
+                        <Setter Target="Description.(Grid.Column)" Value="1"></Setter>
+                        
+                        <!--Activities-->
+                        <Setter Target="Activities.(Grid.Row)" Value="8"></Setter>
+                        <Setter Target="Activities.(Grid.Column)" Value="1"></Setter>
+                        
+                        <!--Courses-->
+                        <Setter Target="Courses.(Grid.Row)" Value="11"></Setter>
+                        <Setter Target="Courses.(Grid.Column)" Value="1"></Setter>
+                        
+                        <!--MAP-->
+                        <Setter Target="Map.(Grid.Row)" Value="14"></Setter>
+                        <Setter Target="Map.(Grid.Column)" Value="1"></Setter>
+                        
+                    </VisualState.Setters>
+                    
+                </VisualState>
+
+                <VisualState x:Name="desktopTwo">
+
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="900"></AdaptiveTrigger>
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <!--Define the desktop layout-->
+                        <!--Buttons-->
+                        <Setter Target="Buttons.(Grid.Row)" Value="0"></Setter>
+                        <Setter Target="Buttons.(Grid.Column)" Value="0"></Setter>
+                        <Setter Target="GridView.ColumnDefinitions[0].Width" Value="250"></Setter>
+
+                        <!--Information-->
+                        <Setter Target="Information.(Grid.Row)" Value="0"></Setter>
+                        
+                        <Setter Target="Information.(Grid.Column)" Value="1"></Setter>
+                        <Setter Target="CampusImage1.Width" Value="250"></Setter>
+                        <Setter Target="CampusImage1.Height" Value="250"></Setter>
+
+                        <!--Desription-->
+                        <Setter Target="Description.(Grid.Row)" Value="3"></Setter>
+                        <Setter Target="Description.(Grid.Column)" Value="1"></Setter>
+                        
+                        <!--Activities-->
+                        <Setter Target="Activities.(Grid.Row)" Value="8"></Setter>
+                        <Setter Target="Activities.(Grid.Column)" Value="1"></Setter>
+                        
+                        <!--Courses-->
+                        <Setter Target="Courses.(Grid.Row)" Value="11"></Setter>
+                        <Setter Target="Courses.(Grid.Column)" Value="1"></Setter>
+                        
+                        <!--Map-->
+                        <Setter Target="Map.(Grid.Row)" Value="14"></Setter>
+                        <Setter Target="Map.(Grid.Column)" Value="1"></Setter>
+
+                    </VisualState.Setters>
+                    
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="MainScroll" Loaded="onBoot_Event">
+            <ScrollViewer.Background>
+                <ImageBrush Stretch="Fill" ImageSource="CampusAssets/CTU2_NumberWeb.png"/>
+            </ScrollViewer.Background>
+            <Grid x:Name="GridView">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    
+                </Grid.ColumnDefinitions>
+
+                <!--Add the page controll here-->
+                <StackPanel x:Name="Buttons" Margin="15">
+                    <ListView x:Name="CampusStack" SelectionChanged="CampusStack_SelectionChanged" Padding="15">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="x:String">
+                                <Grid>
+                                    <TextBlock Text="{x:Bind}" Foreground="White" Padding="15"></TextBlock>
+                                </Grid>
+                            </DataTemplate> 
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+
+                <StackPanel x:Name="Information" Margin="15" Orientation="Vertical">
+                    
+                    <Image x:Name="CampusImage1" Margin="5" ></Image>
+                    <TextBlock x:Name="CampusDesc1" VerticalAlignment="Center" Margin="5" TextWrapping="Wrap"></TextBlock>
+                    
+                </StackPanel>
+
+                <StackPanel x:Name="Description" Margin="15" Orientation="Vertical">
+
+                    <TextBlock x:Name="CampusDescription" TextWrapping="Wrap"  Margin="10"></TextBlock>
+                    
+                </StackPanel>
+
+                <StackPanel x:Name="Activities" Margin="15" Orientation="Vertical">
+
+                    <TextBlock x:Name="CampusActivities" TextWrapping="Wrap" Margin="10"></TextBlock>
+                    <MediaElement x:Name="CampusVid1"  Margin="10" AreTransportControlsEnabled="True" AutoPlay="False"></MediaElement>
+                    
+                </StackPanel>
+
+                <StackPanel x:Name="Courses" Margin="15" Orientation="Vertical">
+
+                    <TextBlock x:Name="CampusCourses" TextWrapping="Wrap"  Margin="10"></TextBlock>
+                    
+                </StackPanel>
+
+                <StackPanel x:Name="Map" Margin="15">
+
+                    <Image x:Name="CampusMapImage"  Margin="10"></Image>
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
